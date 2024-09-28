@@ -1,0 +1,15 @@
+<section class="task">
+    <h1>Lista de tarea</h1>
+    <div class="task__filter">
+        <p>Filter:</p>
+        <button class="task__button">Pending</button>
+        <button class="task__button">Completed</button>
+    </div>
+    <button (click)="openFormCreateTask()" class="task__button">Crear Tarea</button>
+    <div class="task__card" *ngFor="let task of stateManagerService.taskList">
+        <h2>{{task.title}}</h2>
+        <p>{{task.date_limit}}</p>
+    </div>
+</section>
+
+

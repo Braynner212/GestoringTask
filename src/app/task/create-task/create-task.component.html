@@ -1,0 +1,14 @@
+<h1 mat-dialog-title class="create-task__title">Crear Tarea</h1>
+<mat-dialog-content class="mat-typography">
+    <form [formGroup]="form">
+        <input type="text" formControlName="title">
+        <input type="date" formControlName="date_limit">
+        
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions align="center">
+    <button mat-dialog-close class="create-task__button create-task__button--cancel"> Cancel </button>
+    &nbsp;
+    <button (click)="sendCreate()"
+      class="create-task__button create-task__button--create"> Create </button>
+  </mat-dialog-actions>
