@@ -1,0 +1,83 @@
+.create-task{
+
+    &__title{
+        font-size: 26px;
+        font-weight: bold;
+        color: black;
+        margin: 0px;
+    }
+
+    &__subtitle{
+        font-size: 20px;
+        font-weight: bold;
+        color: black;
+        margin: 0px;
+
+        &-form{
+            font-size: 16px;
+            font-weight: bold;
+            color: black;
+            margin: 10px 0px 0px;
+        }
+    }
+
+    &__skill{
+        display: flex;
+        align-items: center;
+    }
+
+    &__input{
+        width: 80%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+    
+        &--skill{
+            width: 70%;
+            &--100{
+                width: 100%;
+            }
+        }
+    }
+
+    &__button{
+        width: 100%;
+        background-color: black;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        margin: 5px;
+        padding: 10px;
+        font-size: 15px;
+        cursor: pointer;
+
+        &--remove{
+            background-color: rgb(202, 195, 195);
+            color: black;
+            &-skill{
+                width: 20%;
+            }
+
+        }
+
+        &--cancel{
+            background-color: rgb(202, 195, 195);
+            color: black;
+            width: 46%;
+        }
+
+        &--create{
+            width: 46%;
+        }
+        
+    }
+
+    &__actions{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+}
+

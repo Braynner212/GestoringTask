@@ -12,9 +12,12 @@ export class TaskComponent {
 
   constructor(protected stateManagerService: StateManagerService, public dialog: MatDialog,) { }
 
+  getTasks() {
+
+  }
+
   openFormCreateTask() {
     const dialogRef = this.dialog.open(CreateTaskComponent, {
-      width: '1500px',
     });
 
     dialogRef.afterClosed().subscribe({ complete :() => {

@@ -1,14 +1,36 @@
-<h1 mat-dialog-title class="create-task__title">Crear Tarea</h1>
+<h1 mat-dialog-title class="create-task__title">Crear Nueva Tarea</h1>
 <mat-dialog-content class="mat-typography">
     <form [formGroup]="form">
-        <input type="text" formControlName="title">
-        <input type="date" formControlName="date_limit">
-        
+        <input type="text" class="create-task__input" formControlName="title" placeholder="Nombre de la tarea">
+        <input type="date" class="create-task__input" formControlName="date_limit" placeholder="Fecha límite">
+        <h1 class="create-task__subtitle">Personas Asociadas</h1>
+         <div formArrayName="people">
+             <ng-container *ngFor="let person of people.controls; let i = index" >
+                <h2 class="create-task__subtitle-form">Persona {{i+1}}</h2>
+                <div [formGroup]="formPerson" [formGroupName]="i">
+                    <input type="text" class="create-task__input" formControlName="name" placeholder="Nombre completo">
+                    <input type="number" class="create-task__input" formControlName="age" placeholder="Edad">
+                <div formArrayName="skills">
+                    <div *ngFor="let skill of getSkills(i).controls; let j = index">
+                        <div [formGroup]="formSkill" [formGroupName]="j" class="create-task__skill">
+                            <input type="text" class="create-task__input"
+                            [ngClass]="{'create-task__input--skill--100': j == 0, 'create-task__input--skill': j != 0,}"   placeholder="Habilidad" formControlName="name">
+                            <button *ngIf="j > 0" (click)="removeFormSkill(i,j)" class="create-task__button create-task__button--remove create-task__button--remove-skill">-</button>
+
+                        </div>
+                        
+                    </div>
+                    <button (click)="addFormSkill(i)" class="create-task__button">Agregar Habilidad</button>
+                </div>  
+                <button *ngIf="i > 0" (click)="removeFormPerson(i)" class="create-task__button create-task__button--remove">Eliminar Persona</button>
+            </div>
+        </ng-container>
+        <button (click)="addFormPerson()" class="create-task__button">Agregar Persona</button>
+           
+         </div>
     </form>
 </mat-dialog-content>
-<mat-dialog-actions align="center">
-    <button mat-dialog-close class="create-task__button create-task__button--cancel"> Cancel </button>
-    &nbsp;
-    <button (click)="sendCreate()"
-      class="create-task__button create-task__button--create"> Create </button>
+<mat-dialog-actions class="create-task__actions">
+    <button mat-dialog-close class="create-task__button create-task__button--cancel"> Cancelar </button>
+    <button (click)="sendCreate()" class="create-task__button create-task__button--create"> Crear Tarea </button>
   </mat-dialog-actions>

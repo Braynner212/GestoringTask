@@ -8,6 +8,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatDialogModule} from '@angular/material/dialog';
 import { CreatePersonComponent } from './task/create-task/form-person/form-person.component';
 import { FormSkillComponent } from './task/create-task/form-person/form-skill/form-skill.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CreateTaskComponent } from './task/create-task/create-task.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +23,9 @@ import { FormSkillComponent } from './task/create-task/form-person/form-skill/fo
     AppRoutingModule,
     BrowserAnimationsModule,
     MatDialogModule,
+    FormsModule, 
+    ReactiveFormsModule,
+    CreateTaskComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

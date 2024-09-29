@@ -1,9 +1,13 @@
-<section class="task">
-    <h1>Lista de tarea</h1>
+<div class="task__wrapper-title">
+    <h1 class="task__title">Gestoring Task</h1>
+</div>
+<section class="task__content">
+    <h2 class="task__subtitle">Lista de tarea</h2>
     <div class="task__filter">
-        <p>Filter:</p>
-        <button class="task__button">Pending</button>
-        <button class="task__button">Completed</button>
+        <label class="task__filter-label">Filtro:</label>
+        <button class="task__button">Todas</button>
+        <button class="task__button">Pendiente</button>
+        <button class="task__button">Completado</button>
     </div>
     <button (click)="openFormCreateTask()" class="task__button">Crear Tarea</button>
     <div class="task__card" *ngFor="let task of stateManagerService.taskList">
