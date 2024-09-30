@@ -1,44 +1,96 @@
-.task__wrapper-title{
-    margin: 0px;
-    padding: 20px 15px;
-    background-color: black;
+.task{
+
+    &__header-card{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__wrapper-title{
+        margin: 0px;
+        padding: 20px 15px;
+        background-color: black;
+    }
+    &__title{
+        font-size: 30px;
+        font-weight: bold;
+        color: white;
+        margin: 0px;
+    }
+
+    &__subtitle{
+        font-size: 20px;
+        font-weight: bold;
+        color: black;
+        margin: 0px;
+    }
+
+    &__filter-label{
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    &__content{
+        margin: 20px 20px
+    }
+
+    &__title-label{
+        font-size: px;
+    }
+
+    &__button{
+        background-color: black;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        margin: 5px;
+        padding: 10px;
+        font-size: 15px;
+        cursor: pointer;
+    }
+
+    &__card{
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        margin: 10px 0px;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        width: 95%;
+
+    }
+
+    &__id-card{
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    &__title-card{
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    &__name-person-card{
+        font-size: 18px;
+    }
+
+    &__name-skill-card{
+        background-color: black;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        margin: 5px;
+        padding: 10px;
+        font-size: 12px;
+        cursor: pointer;
+    }
+
+    &__skills-card{
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
 
     
-}
-.task__title{
-    font-size: 30px;
-    font-weight: bold;
-    color: white;
-    margin: 0px;
-}
 
-.task__subtitle{
-    font-size: 20px;
-    font-weight: bold;
-    color: black;
-    margin: 0px;
-}
-
-.task__filter-label{
-    font-size: 18px;
-    font-weight: bold;
-}
-
-.task__content{
-    margin: 20px 20px
-}
-
-.task__title-label{
-    font-size: px;
-}
-
-.task__button{
-    background-color: black;
-    color: white;
-    border: none;
-    border-radius: 10px;
-    margin: 5px;
-    padding: 10px;
-    font-size: 15px;
-    cursor: pointer;
 }

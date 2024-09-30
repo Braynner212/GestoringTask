@@ -1,6 +1,6 @@
-<div class="task__wrapper-title">
+<header class="task__wrapper-title">
     <h1 class="task__title">Gestoring Task</h1>
-</div>
+</header>
 <section class="task__content">
     <h2 class="task__subtitle">Lista de tarea</h2>
     <div class="task__filter">
@@ -10,10 +10,20 @@
         <button class="task__button">Completado</button>
     </div>
     <button (click)="openFormCreateTask()" class="task__button">Crear Tarea</button>
-    <div class="task__card" *ngFor="let task of stateManagerService.taskList">
-        <h2>{{task.title}}</h2>
-        <p>{{task.date_limit}}</p>
-    </div>
+    <article class="task__card" *ngFor="let task of tasks$ | async">
+        <header class="task__header-card">
+            <span class="task__id-card">{{task.id}}</span><h2 class="task__title-card">{{task.title}}</h2>
+            <span class="task__date-card">{{task.date_limit| date:'yy/MM/dd HH:mm:ss'}}</span>
+        </header>
+        <h3>Personas Asociadas{{' '+task.people.length}}:</h3>
+        <div *ngFor="let person of task.people">
+            <span class="task__name-person-card">{{person.name}}</span>
+            <h4>Habilidades:</h4>
+            <div class="task__skills-card" *ngFor="let skill of person.skills">
+                <span class="task__name-skill-card">{{skill.name}}</span>
+            </div>
+        </div>
+    </article>
 </section>
 
 

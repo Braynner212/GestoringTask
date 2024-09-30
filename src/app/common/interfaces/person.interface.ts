@@ -1,4 +1,4 @@
-import { skill } from "./skill";
+import { skill } from "./skill.interface";
 
 export interface Person {
     id: number;

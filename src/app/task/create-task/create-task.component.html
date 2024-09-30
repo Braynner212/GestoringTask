@@ -1,23 +1,36 @@
 <h1 mat-dialog-title class="create-task__title">Crear Nueva Tarea</h1>
 <mat-dialog-content class="mat-typography">
     <form [formGroup]="form">
-        <input type="text" class="create-task__input" formControlName="title" placeholder="Nombre de la tarea">
-        <input type="date" class="create-task__input" formControlName="date_limit" placeholder="Fecha límite">
+        <input type="text" class="create-task__input" [ngClass]="{'invalid': form.get('title')?.hasError('required') && form.get('title')?.touched}" formControlName="title" placeholder="Nombre de la tarea">
+        <small *ngIf="this.form.get('title')?.hasError('required') && this.form.get('title')?.touched" class="create-task__error">Este campo es requerido</small>
+
+        <input type="date" class="create-task__input" [ngClass]="{'invalid': form.get('date_limit')?.hasError('required') && form.get('date_limit')?.touched}" formControlName="date_limit" placeholder="Fecha límite">
+        <small *ngIf="this.form.get('date_limit')?.hasError('required') && this.form.get('date_limit')?.touched" class="create-task__error">Este campo es requerido</small>
+
         <h1 class="create-task__subtitle">Personas Asociadas</h1>
          <div formArrayName="people">
              <ng-container *ngFor="let person of people.controls; let i = index" >
                 <h2 class="create-task__subtitle-form">Persona {{i+1}}</h2>
                 <div [formGroup]="formPerson" [formGroupName]="i">
-                    <input type="text" class="create-task__input" formControlName="name" placeholder="Nombre completo">
-                    <input type="number" class="create-task__input" formControlName="age" placeholder="Edad">
+                    <input type="text" class="create-task__input" [ngClass]="{'invalid': people.controls[i].get('name')?.hasError('required') && people.controls[i].get('name')?.touched || people.controls[i].get('name')?.hasError('minlength') && people.controls[i].get('name')?.touched}" formControlName="name" placeholder="Nombre completo">
+                    <small *ngIf="people.controls[i].get('name')?.hasError('required') && people.controls[i].get('name')?.touched" class="create-task__error">Este campo es requerido</small>
+                    <small *ngIf="people.controls[i].get('name')?.hasError('minlength') && people.controls[i].get('name')?.touched" class="create-task__error">Debe tener 5 o más caracteres</small>
+
+                    <input type="number" class="create-task__input" [ngClass]="{'invalid': people.controls[i].get('age')?.hasError('required') && people.controls[i].get('age')?.touched  || people.controls[i].get('age')?.hasError('min') && people.controls[i].get('age')?.touched}" formControlName="age" placeholder="Edad">
+                    <small *ngIf="people.controls[i].get('age')?.hasError('required') && people.controls[i].get('age')?.touched" class="create-task__error">Este campo es requerido</small>
+                    <small *ngIf="people.controls[i].get('age')?.hasError('min') && people.controls[i].get('age')?.touched" class="create-task__error">Debe ser mayor de 18 años</small>
+
                 <div formArrayName="skills">
                     <div *ngFor="let skill of getSkills(i).controls; let j = index">
                         <div [formGroup]="formSkill" [formGroupName]="j" class="create-task__skill">
-                            <input type="text" class="create-task__input"
-                            [ngClass]="{'create-task__input--skill--100': j == 0, 'create-task__input--skill': j != 0,}"   placeholder="Habilidad" formControlName="name">
-                            <button *ngIf="j > 0" (click)="removeFormSkill(i,j)" class="create-task__button create-task__button--remove create-task__button--remove-skill">-</button>
-
-                        </div>
+                            <input type="text"  class="create-task__input"
+                            [ngClass]="{'create-task__input--skill--100': j == 0, 'create-task__input--skill': j != 0}"
+                            [ngClass]="{'invalid': getSkills(i).controls[j].get('name')?.hasError('required') && getSkills(i).controls[j].get('name')?.touched}"
+                              placeholder="Habilidad" formControlName="name">
+                              <button *ngIf="j > 0" (click)="removeFormSkill(i,j)" class="create-task__button create-task__button--remove create-task__button--remove-skill">-</button>
+                              
+                            </div>
+                            <small *ngIf="getSkills(i).controls[j].get('name')?.hasError('required') && getSkills(i).controls[j].get('name')?.touched" class="create-task__error">Este campo es requerido</small>
                         
                     </div>
                     <button (click)="addFormSkill(i)" class="create-task__button">Agregar Habilidad</button>

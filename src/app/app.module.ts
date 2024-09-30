@@ -10,11 +10,11 @@ import { CreatePersonComponent } from './task/create-task/form-person/form-perso
 import { FormSkillComponent } from './task/create-task/form-person/form-skill/form-skill.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CreateTaskComponent } from './task/create-task/create-task.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TaskComponent,
     CreatePersonComponent,
     FormSkillComponent
   ],
@@ -25,6 +25,7 @@ import { CreateTaskComponent } from './task/create-task/create-task.component';
     MatDialogModule,
     FormsModule, 
     ReactiveFormsModule,
+    HttpClientModule,
     CreateTaskComponent
   ],
   providers: [],

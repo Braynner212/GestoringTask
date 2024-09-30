@@ -39,6 +39,18 @@
                 width: 100%;
             }
         }
+
+        &:focus{
+            outline: none;
+            border: 2px solid rgb(138, 178, 211);
+            box-shadow: 0 0 5px rgb(138, 178, 211);
+        }
+    }
+
+    &__error{
+        color: rgb(153, 37, 37);
+        font-size: 12px;
+        margin: 0px;
     }
 
     &__button{
@@ -79,5 +91,9 @@
         align-items: center;
     }
 
+}
+
+.invalid{
+    border: 1px solid rgb(153, 37, 37);
 }
 
