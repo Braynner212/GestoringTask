@@ -9,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
 export class StateManagerService {
 
     // URL de la API
-    private apiUrl = 'http://localhost:3001/api/task';
+    private apiUrl = 'https://gestoringtask.bfengconsulting.co/api/task';
   
     // BehaviorSubject para almacenar el estado de los datos
     private tasksSubject = new BehaviorSubject<any[]>([]);

@@ -21,7 +21,7 @@
         
         <h2 class="task__card-title">{{task.title}}</h2>
         <span class="task__card-date">{{task.date_limit| date:'yy/MM/dd'}}</span>
-        <h3>Personas Asociadas{{' '+task.people?.length}}:</h3>
+        <h3 class="task__card-subtitle">Personas Asociadas{{' '+task.people?.length}}:</h3>
         <div *ngFor="let person of task.people">
             <span class="task__card-name-person">{{person.name}}</span>
             <h4>Habilidades:</h4>

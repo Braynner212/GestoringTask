@@ -126,13 +126,11 @@ export class CreateTaskComponent implements OnInit{
         })
 
       });
-      console.log('Form Invalid', this.form);
     } else {
       this.stateManagerService.addTask(this.form.value).subscribe(() => {
         this.newTask = { id:0, title: '', date_limit: new Date(), status: 'pending'}; // Reiniciamos el nuevo ítem
         this.dialogRef.close();
       });
-      console.log('Form Valid', this.form);
     }
   } 
 

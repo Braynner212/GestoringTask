@@ -1,5 +1,10 @@
 .create-task{
 
+    &__form{
+        display: flex;
+        flex-direction: column; 
+    }
+
     &__title{
         font-size: 26px;
         font-weight: bold;
@@ -19,6 +24,11 @@
             color: black;
             margin: 10px 0px 0px;
         }
+    }
+
+    &__person-form{
+        display: flex;
+        flex-direction: column;
     }
 
     &__skill{
