@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormArray, FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validator, ValidatorFn, Validators } from '@angular/forms';
 import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { Task } from 'src/app/common/interfaces/task.interface';
 import { StateManagerService } from 'src/app/common/services/state-manager.service';
+import { noRepeatPerson } from 'src/app/common/utils/validator-customer';
+
+
 
 @Component({
   selector: 'app-create-task',
@@ -31,27 +34,28 @@ export class CreateTaskComponent implements OnInit{
 
   makeForm(){
     this.form = this.formBuilder.group({
-      title: ['Tarea 2', Validators.required],
+      title: ['', Validators.required],
       date_limit: [new Date(), Validators.required],
       people:
         this.formBuilder.array([
           this.makeFormPerson(),
         ])
     }
+    , 
+    {
+      validators: noRepeatPerson
+    }
   )
   }
 
   makeFormPerson(){
     return this.formPerson = this.formBuilder.group({
-      name: ['Braynner Polo', [Validators.required, Validators.minLength(5)]],
-      age: ['26', [Validators.required, Validators.min(18)]],
+      name: ['', [Validators.required, Validators.minLength(5)]],
+      age: ['', [Validators.required, Validators.min(18)]],
       skills: this.formBuilder.array([
         this.formBuilder.group({
-          name: ['Angular', Validators.required],
+          name: ['', Validators.required],
         }),
-        this.formBuilder.group({
-          name: ['SQL', Validators.required],
-        })
       ])
     })
   }
@@ -128,7 +132,7 @@ export class CreateTaskComponent implements OnInit{
         this.newTask = { id:0, title: '', date_limit: new Date(), status: 'pending'}; // Reiniciamos el nuevo ítem
         this.dialogRef.close();
       });
-      console.log('Form Valid', this.form.value);
+      console.log('Form Valid', this.form);
     }
   } 
 

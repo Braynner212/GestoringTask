@@ -1,11 +1,5 @@
 .task{
 
-    &__header-card{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
     &__wrapper-title{
         margin: 0px;
         padding: 20px 15px;
@@ -47,6 +41,15 @@
         padding: 10px;
         font-size: 15px;
         cursor: pointer;
+
+        &--create-task{
+            width: 100%;
+        }
+
+        &--active, &:hover{
+            background-color: rgb(173, 167, 167);
+            color: black;
+        }
     }
 
     &__card{
@@ -56,45 +59,60 @@
         padding: 20px;
         display: flex;
         flex-direction: column;
-        width: 95%;
+        width: 89%;
 
+        &-header{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        &-id{
+            font-size: 18px;
+        }
+    
+        &-title{
+            font-size: 16px;
+        }
+    
+        &-name-person{
+            font-size: 16px;
+        }
+    
+        &-name-skill{
+            background-color: black;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            margin: 10px;
+            padding: 10px;
+            font-size: 12px;
+            cursor: pointer;
+        }
+    
+        &-skills{
+            display: flex;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+            width: 100%;
+            min-height: 80px;
+            height: auto;
+            margin: 10px 0px;
+        }
     }
 
-    &__id-card{
-        font-size: 20px;
-    }
-
-    &__title-card{
-        font-size: 16px;
-    }
-
-    &__name-person-card{
-        font-size: 16px;
-    }
-
-    &__name-skill-card{
-        background-color: black;
-        color: white;
-        border: none;
-        border-radius: 10px;
-        margin: 5px;
-        padding: 10px;
-        font-size: 12px;
-        cursor: pointer;
-    }
-
-    &__skills-card{
-        display: flex;
-        justify-content: space-between;
-        width: 100%;
-    }
+    
 
     &__status{
     
         &-button{
             background-color: transparent;
             color: black;
-            border: none;
+            border: 1px solid rgb(190, 178, 178)s;
+            background-color: transparent;
+            border-radius: 10px;
+            margin: 5px;
+            padding: 10px;
             cursor: pointer;
         }
 
@@ -106,7 +124,5 @@
             color: green
         }
     }
-
-    
 
 }

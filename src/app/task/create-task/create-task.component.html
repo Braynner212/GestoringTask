@@ -12,9 +12,10 @@
              <ng-container *ngFor="let person of people.controls; let i = index" >
                 <h2 class="create-task__subtitle-form">Persona {{i+1}}</h2>
                 <div [formGroup]="formPerson" [formGroupName]="i">
-                    <input type="text" class="create-task__input" [ngClass]="{'invalid': people.controls[i].get('name')?.hasError('required') && people.controls[i].get('name')?.touched || people.controls[i].get('name')?.hasError('minlength') && people.controls[i].get('name')?.touched}" formControlName="name" placeholder="Nombre completo">
+                    <input type="text" class="create-task__input" [ngClass]="{'invalid': people.controls[i].get('name')?.hasError('required') && people.controls[i].get('name')?.touched || people.controls[i].get('name')?.hasError('minlength') && people.controls[i].get('name')?.touched || people.hasError('noRepeatPerson') && people.controls[i].get('name')?.touched}" formControlName="name" placeholder="Nombre completo">
                     <small *ngIf="people.controls[i].get('name')?.hasError('required') && people.controls[i].get('name')?.touched" class="create-task__error">Este campo es requerido</small>
                     <small *ngIf="people.controls[i].get('name')?.hasError('minlength') && people.controls[i].get('name')?.touched" class="create-task__error">Debe tener 5 o más caracteres</small>
+                    <small *ngIf="people.hasError('noRepeatPerson') && people.controls[i].get('name')?.touched" class="create-task__error">No se puedes repetir los nombres</small>
 
                     <input type="number" class="create-task__input" [ngClass]="{'invalid': people.controls[i].get('age')?.hasError('required') && people.controls[i].get('age')?.touched  || people.controls[i].get('age')?.hasError('min') && people.controls[i].get('age')?.touched}" formControlName="age" placeholder="Edad">
                     <small *ngIf="people.controls[i].get('age')?.hasError('required') && people.controls[i].get('age')?.touched" class="create-task__error">Este campo es requerido</small>
