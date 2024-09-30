@@ -12,9 +12,15 @@
     <button (click)="openFormCreateTask()" class="task__button">Crear Tarea</button>
     <article class="task__card" *ngFor="let task of tasks$ | async">
         <header class="task__header-card">
-            <span class="task__id-card">{{task.id}}</span><h2 class="task__title-card">{{task.title}}</h2>
-            <span class="task__date-card">{{task.date_limit| date:'yy/MM/dd HH:mm:ss'}}</span>
+            <span class="task__id-card">{{'Tarea '+task.id}}</span>
+            <button (click)="changeStatus(task)" class="task__status-button">
+                <span *ngIf="task.status == 'pending'" class="task__status-pending">Pendiente</span>
+                <span *ngIf="task.status == 'completed'" class="task__status-completed">Completado</span>            
+            </button>
         </header>
+        
+        <h2 class="task__title-card">{{task.title}}</h2>
+        <span class="task__date-card">{{task.date_limit| date:'yy/MM/dd'}}</span>
         <h3>Personas Asociadas{{' '+task.people.length}}:</h3>
         <div *ngFor="let person of task.people">
             <span class="task__name-person-card">{{person.name}}</span>

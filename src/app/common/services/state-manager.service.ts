@@ -33,4 +33,18 @@ export class StateManagerService {
         })
       );
     }
-  }
+  
+    // Método para actualizar un ítem en la base de datos y en el estado
+    updateTask(id: number, newtask: Task): Observable<any> {
+      return this.http.put<any>(this.apiUrl,newtask).pipe(
+        tap(() => {
+          const currentTasks = this.tasksSubject.value;
+          const updatedTasks = currentTasks.map(task =>
+            task.id === id ? newtask : task
+          );
+          this.tasksSubject.next(updatedTasks); // Actualizamos el estado con la tarea modificada
+        })
+      );
+    }
+
+}

@@ -53,7 +53,7 @@
         border: 1px solid #ccc;
         border-radius: 10px;
         margin: 10px 0px;
-        padding: 10px;
+        padding: 20px;
         display: flex;
         flex-direction: column;
         width: 95%;
@@ -61,17 +61,15 @@
     }
 
     &__id-card{
-        font-size: 18px;
-        font-weight: bold;
+        font-size: 20px;
     }
 
     &__title-card{
-        font-size: 18px;
-        font-weight: bold;
+        font-size: 16px;
     }
 
     &__name-person-card{
-        font-size: 18px;
+        font-size: 16px;
     }
 
     &__name-skill-card{
@@ -89,6 +87,13 @@
         display: flex;
         justify-content: space-between;
         width: 100%;
+    }
+
+    &__status-button{
+        background-color: transparent;
+        color: black;
+        border: none;
+        cursor: pointer;
     }
 
     
