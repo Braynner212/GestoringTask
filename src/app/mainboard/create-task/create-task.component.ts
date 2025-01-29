@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormArray, FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validator, ValidatorFn, Validators } from '@angular/forms';
 import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { Task } from 'src/app/common/interfaces/task.interface';
-import { StateManagerService } from 'src/app/common/services/state-manager.service';
+import { StoreManagerService } from 'src/app/common/services/store-manager.service';
 import { noRepeatPerson } from 'src/app/common/utils/validator-customer';
 
 
@@ -23,7 +23,7 @@ export class CreateTaskComponent implements OnInit{
   newTask: Task = { id:0, title: '', date_limit: new Date(), status: 'pending'}; // Nueva tarea
 
 
-  constructor(private formBuilder: FormBuilder, private stateManagerService: StateManagerService, public dialogRef: MatDialogRef<CreateTaskComponent>) { }
+  constructor(private formBuilder: FormBuilder, private storeManagerService: StoreManagerService, public dialogRef: MatDialogRef<CreateTaskComponent>) { }
 
 
 
@@ -127,10 +127,10 @@ export class CreateTaskComponent implements OnInit{
 
       });
     } else {
-      this.stateManagerService.addTask(this.form.value).subscribe(() => {
+      /* this.StoreManagerService.addTask(this.form.value).subscribe(() => {
         this.newTask = { id:0, title: '', date_limit: new Date(), status: 'pending'}; // Reiniciamos el nuevo ítem
         this.dialogRef.close();
-      });
+      }); */
     }
   } 
 

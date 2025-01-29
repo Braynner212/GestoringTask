@@ -1,0 +1,28 @@
+.task{
+
+    &__card{
+        border-radius: 10px;
+        background-color: #a3b0b8d8;
+        padding: 10px;
+        margin: 10px 0px;
+        height: 80px;
+        width: 240px;
+    }
+
+    &__header{
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__title{
+        font-size: 14px;
+        font-weight: 500;
+    }
+
+    &__button{
+        border: none;
+        font-size: 20px;
+        background-color: transparent;
+    }
+
+}

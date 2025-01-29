@@ -1,0 +1,29 @@
+.list-task{
+    margin: 0px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #f1f1f1;
+    height: auto;
+    width: 260px;
+
+    &__header{
+        padding: 10px 15px 15px;
+        display: flex;
+        justify-content: space-between;
+
+    }
+
+    &__spliter{
+        color: #999595;
+    }
+
+    &__title{
+        font-size: 16px;
+        font-weight: 500;
+    }
+
+    &__button{
+        border:none;
+        font-size: 20px;
+    }
+}

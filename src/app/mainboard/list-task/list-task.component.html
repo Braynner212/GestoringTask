@@ -1,0 +1,12 @@
+<div class="list-task">
+    <div class="list-task__header">
+        <h2 class="list-task__title">{{ listTask.title }}</h2>
+        <button class="list-task__button" (click)="createTask()">...</button>
+    </div>
+    <hr class="list-task__spliter">
+    <div class="list-task__content">
+        <div *ngFor="let task of listTask.tasks">
+            <app-task [task]="task"></app-task>      
+        </div>
+    </div>
+</div>

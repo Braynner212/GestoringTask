@@ -1,0 +1,134 @@
+.task{
+    &__wrapper-header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        height: 80px;
+    }
+
+    &__search{
+        border-radius: 10px;
+        border: none;
+        margin-left: 30px;
+        padding-left: 20px;
+        cursor: pointer;
+        background-color: rgba(200, 218, 229, 0.65);
+        color: #000000;
+        width: 90%;
+        height: 40px;
+        transition: all 0.4s ease; /* Suaviza la transición */
+
+        &:focus{
+            outline: none;
+            border-color: #11A7FA;
+            box-shadow: 0 0 10px rgb(49, 138, 185);
+        }
+    }
+
+    &__button-search{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        border: none;
+        margin: 10px;
+        cursor: pointer;
+        background-color: #11A7FA;
+        width: 40px;
+        height: 40px;
+    }
+
+}
+
+.content{
+
+    display: flex;
+    width: 100%;
+    height: 70%;
+
+    &__menu{
+        width: 40px;
+        height: calc(100% - 25px);
+        border-radius: 10px;
+        border: none;
+        margin: 0px 0px 20px 20px;
+        cursor: pointer;
+        background-color: #11A7FA;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    &__board{
+        margin: 0px ;
+        padding: 0px 10px 10px;
+        height: calc(100vh - 120px);
+        width: calc(100vw - 100px);
+        overflow-y: scroll;
+        overflow-x: scroll;
+    }
+
+    &__notifications{
+        margin: 0px;
+        padding: 0px;
+        list-style: none;
+    }
+
+}
+
+.left{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100vw;
+    margin: 0px;
+    padding: 0px;
+}
+.right{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 30vw;
+    margin: 0px;
+    padding: 0px;
+}
+
+.wrapper-search{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 70%;
+}
+
+.menu{
+
+    &__list{
+        &-down, &-up{
+            list-style: none;
+            padding-left: 0px;
+            // display: flex;
+        }
+
+        &-up{
+            height: 70%;
+        }
+
+        &-down{
+            height: 30%;
+        }
+    }
+
+    &__spliter{
+        color: #C8DAE5;
+        width: 70%;
+    }
+
+    &__item{
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+        margin-bottom: 15px;
+
+    }
+}
